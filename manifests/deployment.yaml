@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: AutomatedAKSDeployments
+  name: pythonsampleapplication
   labels:
-    app: AutomatedAKSDeployments
+    app: pythonsampleapplication
     kubernetes.azure.com/generator: devhub
   namespace: python-sample-namespace
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: AutomatedAKSDeployments
+      app: pythonsampleapplication
   template:
     metadata:
       labels:
-        app: AutomatedAKSDeployments
+        app: pythonsampleapplication
     spec:
       containers:
-        - name: AutomatedAKSDeployments
+        - name: pythonsampleapplication
           image: acrregistrydeb001.azurecr.io/pythonsampleimage:latest
           imagePullPolicy: Always
           ports:
