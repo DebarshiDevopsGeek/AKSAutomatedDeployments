@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: AutomatedAKSDeployments
+  namespace: python-sample-namespace
+  labels:
+    kubernetes.azure.com/generator: devhub
+spec:
+  type: LoadBalancer
+  selector:
+    app: AutomatedAKSDeployments
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
