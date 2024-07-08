@@ -1,12 +1,12 @@
-FROM python:3.8-slim
-ENV PORT 5000
-EXPOSE 5000
-WORKDIR /usr/src/app
-
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
-
-COPY . .
-
-ENTRYPOINT ["python"]
-CMD ["app.py"]
+FROM python:3.8.0-alpine3.10
+USER root
+WORKDIR /app
+COPY sample-python-app-master/src/ /app/src/
+COPY ./sample-python-app-master/requirements.txt /app
+RUN ls -la /app
+RUN python3 --version
+RUN pip3 install --upgrade pip
+RUN pip3 install --no-cache-dir -r /app/requirements.txt
+RUN pip3 list --format=columns
+USER 1001
+ENTRYPOINT ["python3", "/app/src/app.py"]

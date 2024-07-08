@@ -21,4 +21,4 @@ spec:
           image: acrregistrydeb001.azurecr.io/pythonsampleimage:latest
           imagePullPolicy: Always
           ports:
-            - containerPort: 5000
+            - containerPort: 5001
